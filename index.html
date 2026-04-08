@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>就活の木｜28卒 就活サポートページ一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark:#2C5F2D;--green-mid:#4A8C4B;--green-light:#97BC62;
+    --green-pale:#E8F5E9;--green-ultra:#F0FDF0;--amber:#F59E0B;
+    --gray-dark:#1F2937;--gray-mid:#6B7280;--white:#FFFFFF;
+    --shadow-sm:0 2px 8px rgba(44,95,45,0.10);--shadow-md:0 6px 24px rgba(44,95,45,0.13);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--green-ultra);min-height:100vh;color:var(--gray-dark);}
+
+  /* HERO */
+  .hero{background:linear-gradient(150deg,var(--green-dark) 0%,#3a7a3b 60%,var(--green-mid) 100%);padding:44px 20px 56px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(151,188,98,0.18) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(255,255,255,0.06) 0%,transparent 40%);pointer-events:none;}
+  .hero-tree{position:absolute;right:-10px;bottom:0;font-size:130px;opacity:0.09;line-height:1;pointer-events:none;user-select:none;}
+  .brand-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.90);font-size:11px;font-weight:700;letter-spacing:0.12em;padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+  .hero-logo{font-size:48px;margin-bottom:10px;display:block;animation:floatIcon 3s ease-in-out infinite;}
+  @keyframes floatIcon{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  .hero h1{font-size:clamp(18px,4.5vw,28px);font-weight:900;color:#fff;line-height:1.3;margin-bottom:8px;}
+  .hero-sub{font-size:13px;color:rgba(255,255,255,0.80);line-height:1.65;max-width:360px;margin:0 auto 18px;}
+  .hero-note{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.20);color:rgba(255,255,255,0.88);font-size:11px;font-weight:600;padding:6px 16px;border-radius:20px;}
+
+  /* フェーズ帯 */
+  .phase-strip{background:rgba(0,0,0,0.15);border-top:1px solid rgba(255,255,255,0.10);padding:10px 16px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+  .phase-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,0.13);color:rgba(255,255,255,0.88);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.18);}
+
+  /* CONTENT */
+  .content{max-width:680px;margin:0 auto;padding:28px 16px 60px;}
+
+  /* セクションラベル */
+  .section-label{font-size:11px;font-weight:700;letter-spacing:0.12em;color:var(--gray-mid);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .section-label::after{content:'';flex:1;height:1px;background:#D1E8D2;}
+
+  /* カードグリッド */
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;}
+  @media(max-width:440px){.card-grid{grid-template-columns:1fr;}}
+
+  /* 項目カード */
+  .item-card{display:flex;flex-direction:column;background:var(--white);border-radius:16px;box-shadow:var(--shadow-sm);text-decoration:none;color:var(--gray-dark);overflow:hidden;transition:transform 0.18s,box-shadow 0.18s;opacity:0;transform:translateY(16px);animation:fadeUp 0.45s ease forwards;}
+  .item-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+  .item-card:nth-child(1){animation-delay:0.04s;}
+  .item-card:nth-child(2){animation-delay:0.09s;}
+  .item-card:nth-child(3){animation-delay:0.14s;}
+  .item-card:nth-child(4){animation-delay:0.19s;}
+  .item-card:nth-child(5){animation-delay:0.24s;}
+  .item-card:nth-child(6){animation-delay:0.29s;}
+  .item-card:nth-child(7){animation-delay:0.34s;}
+  .item-card:nth-child(8){animation-delay:0.39s;}
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+
+  .card-top{height:6px;width:100%;}
+  .card-body{padding:14px 14px 12px;flex:1;display:flex;flex-direction:column;gap:6px;}
+  .card-icon{font-size:28px;line-height:1;margin-bottom:2px;}
+  .card-title{font-size:14px;font-weight:900;color:var(--gray-dark);line-height:1.3;}
+  .card-desc{font-size:11px;color:var(--gray-mid);line-height:1.55;flex:1;}
+  .card-phases{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+  .card-phase{font-size:10px;font-weight:600;padding:2px 8px;border-radius:10px;background:var(--green-pale);color:var(--green-dark);}
+  .card-arrow{text-align:right;font-size:13px;color:var(--green-mid);font-weight:700;margin-top:8px;padding:0 14px 12px;}
+
+  /* カラー定義 */
+  .c-green  { background: linear-gradient(90deg,#2C5F2D,#4A8C4B); }
+  .c-orange { background: linear-gradient(90deg,#b45309,#f59e0b); }
+  .c-blue   { background: linear-gradient(90deg,#1e3a5f,#3b82f6); }
+  .c-purple { background: linear-gradient(90deg,#4c1d95,#7c3aed); }
+  .c-teal   { background: linear-gradient(90deg,#134e4a,#14b8a6); }
+  .c-red    { background: linear-gradient(90deg,#7f1d1d,#dc2626); }
+  .c-gold   { background: linear-gradient(90deg,#78350f,#f59e0b); }
+  .c-green2 { background: linear-gradient(90deg,#2C5F2D,#97BC62); }
+
+  /* キャリ爺メッセージ */
+  .message-box{background:var(--white);border-radius:16px;box-shadow:var(--shadow-sm);padding:18px 18px;margin-bottom:20px;opacity:0;animation:fadeUp 0.45s ease 0.45s forwards;}
+  .message-inner{background:linear-gradient(135deg,#FFF7ED,#FEF3C7);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:14px 16px;}
+  .message-label{font-size:11px;font-weight:700;color:#92400E;letter-spacing:0.05em;margin-bottom:6px;display:block;}
+  .message-text{font-size:13px;color:#78350F;font-style:italic;line-height:1.75;}
+
+  /* フッター */
+  .footer{text-align:center;padding:0 16px 40px;font-size:11px;color:var(--gray-mid);}
+  .footer-brand{font-weight:700;color:var(--green-mid);}
+
+  @media(max-width:480px){
+    .hero{padding:32px 16px 44px;}
+    .content{padding:20px 12px 50px;}
+    .card-body{padding:12px 12px 10px;}
+    .card-title{font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tree">🌳</div>
+  <div class="brand-badge">🌱 就活の木｜キャリア支援課</div>
+  <span class="hero-logo">🌳</span>
+  <h1>28卒 就活サポートページ一覧</h1>
+  <p class="hero-sub">自分が今やるべきことを選んで、<br>そのページだけ開いてみてください。</p>
+  <span class="hero-note">キャリ爺（北山 四郎）作成</span>
+  <div class="phase-strip">
+    <span class="phase-tag">🌸 3年・春　スタート！</span>
+    <span class="phase-tag">☀️ 夏　インターン最盛期</span>
+    <span class="phase-tag">🍂 秋冬　早期選考</span>
+    <span class="phase-tag">🌸 4年・春　本選考</span>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section-label">📋 取り組み別ページ一覧</div>
+
+  <div class="card-grid">
+
+    <a class="item-card" href="jikobunseki.html">
+      <div class="card-top c-green"></div>
+      <div class="card-body">
+        <div class="card-icon">🌱</div>
+        <div class="card-title">自己分析</div>
+        <div class="card-desc">自分の経験・価値観・強みを深く知る。就活のすべての出発点。</div>
+        <div class="card-phases">
+          <span class="card-phase">🌸 春〜通年</span>
+        </div>
+      </div>
+      <div class="card-arrow">開く →</div>
+    </a>
+
+    <a class="item-card" href="intern.html">
+      <div class="card-top c-orange"></div>
+      <div class="card-body">
+        <div class="card-icon">☀️</div>
+        <div class="card-title">インターン</div>
+        <div class="card-desc">申込→参加→振り返り。夏が最盛期、秋冬は早期選考直結型が増える。</div>
+        <div class="card-phases">
+          <span class="card-phase">🌸 春〜</span>
+          <span class="card-phase">☀️ 夏 最盛期</span>
+        </div>
+      </div>
+      <div class="card-arrow">開く →</div>
+    </a>
+
+    <a class="item-card" href="kigyo.html">
+      <div class="card-top c-blue"></div>
+      <div class="card-body">
+        <div class="card-icon">🔍</div>
+        <div class="card-title">業界・企業研究</div>
+        <div class="card-desc">業界・企業・職種の3つをセットで。「なぜこの企業か」を自分の言葉で。</div>
+        <div class="card-phases">
+          <span class="card-phase">🌸 春〜通年</span>
+        </div>
+      </div>
+      <div class="card-arrow">開く →</div>
+    </a>
+
+    <a class="item-card" href="es.html">
+      <div class="card-top c-purple"></div>
+      <div class="card-body">
+        <div class="card-icon">📋</div>
+        <div class="card-title">ES作成・添削</div>
+        <div class="card-desc">志望動機・ガクチカ・自己PR。ESは面接の設計図。丁寧に書くほど面接が楽になる。</div>
+        <div class="card-phases">
+          <span class="card-phase">☀️ 夏〜</span>
+          <span class="card-phase">🍂 秋冬 集中期</span>
+        </div>
+      </div>
+      <div class="card-arrow">開く →</div>
+    </a>
+
+    <a class="item-card" href="spi.html">
+      <div class="card-top c-teal"></div>
+      <div class="card-body">
+        <div class="card-icon">📝</div>
+        <div class="card-title">SPI・筆記対策</div>
+        <div class="card-desc">早めに始めるほど有利。貯金型の対策、今日の10問が半年後に返ってくる。</div>
+        <div class="card-phases">
+          <span class="card-phase">🌸 春 今すぐ！</span>
+        </div>
+      </div>
+      <div class="card-arrow">開く →</div>
+    </a>
+
+    <a class="item-card" href="mensetsu.html">
+      <div class="card-top c-red"></div>
+      <div class="card-body">
+        <div class="card-icon">🎤</div>
+        <div class="card-title">面接対策</div>
+        <div class="card-desc">模擬面接・頻出質問対策。練習した回数だけ自信になる。声に出すことから始めよう。</div>
+        <div class="card-phases">
+          <span class="card-phase">🍂 秋冬〜</span>
+          <span class="card-phase">🌸 本選考 最重要</span>
+        </div>
+      </div>
+      <div class="card-arrow">開く →</div>
+    </a>
+
+    <a class="item-card" href="soki.html">
+      <div class="card-top c-gold"></div>
+      <div class="card-body">
+        <div class="card-icon">🏆</div>
+        <div class="card-title">早期内定（意欲層）</div>
+        <div class="card-desc">秋冬インターン→早期選考。動いた人だけが手にできるドアがある。</div>
+        <div class="card-phases">
+          <span class="card-phase">🍂 秋冬 早期選考</span>
+        </div>
+      </div>
+      <div class="card-arrow">開く →</div>
+    </a>
+
+    <a class="item-card" href="honsen.html">
+      <div class="card-top c-green2"></div>
+      <div class="card-body">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">本選考・内定</div>
+        <div class="card-desc">3月解禁→面接→6月内定。本選考の土台は今この瞬間に作るもの。</div>
+        <div class="card-phases">
+          <span class="card-phase">🌸 4年3月 解禁</span>
+          <span class="card-phase">🎯 6月 内定</span>
+        </div>
+      </div>
+      <div class="card-arrow">開く →</div>
+    </a>
+
+  </div>
+
+  <div class="message-box">
+    <div class="message-inner">
+      <span class="message-label">🌱 キャリ爺より</span>
+      <div class="message-text">「どの層を目指すにも、スタートは今日。<br>自分が今どこにいるか、次に何をすればいいか——<br>わからなくなったら、いつでもキャリア支援課に来てください。<br>答えは、君の中にある。」</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span class="footer-brand">🌱 就活の木</span>｜多摩大学キャリア支援課<br>
+  キャリ爺（北山 四郎）作成
+</div>
+
+</body>
+</html>
