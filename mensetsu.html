@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎤 面接対策｜就活の木</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+
+  :root{--green-dark:#2C5F2D;--green-mid:#4A8C4B;--green-pale:#E8F5E9;--green-ultra:#F0FDF0;--amber:#F59E0B;--gray-dark:#1F2937;--gray-mid:#6B7280;--white:#FFFFFF;--shadow-sm:0 2px 8px rgba(44,95,45,0.10);--shadow-md:0 6px 24px rgba(44,95,45,0.13);}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--green-ultra);min-height:100vh;color:var(--gray-dark);}
+  .hero{padding:40px 20px 0;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(151,188,98,0.15) 0%,transparent 50%);pointer-events:none;}
+  .hero-tree{position:absolute;right:-10px;bottom:0;font-size:110px;opacity:0.10;line-height:1;pointer-events:none;user-select:none;}
+  .brand-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.90);font-size:11px;font-weight:700;letter-spacing:0.12em;padding:5px 14px;border-radius:20px;margin-bottom:18px;backdrop-filter:blur(4px);}
+  .hero-icon{font-size:52px;margin-bottom:10px;display:block;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2));animation:floatIcon 3s ease-in-out infinite;}
+  @keyframes floatIcon{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  .hero h1{font-size:clamp(22px,5vw,32px);font-weight:900;color:#fff;line-height:1.25;margin-bottom:10px;}
+  .hero-sub{font-size:13px;color:rgba(255,255,255,0.80);line-height:1.6;max-width:340px;margin:0 auto;padding-bottom:20px;}
+  .phase-bar{background:rgba(0,0,0,0.15);border-top:1px solid rgba(255,255,255,0.12);padding:12px 20px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;}
+  .phase-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.90);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.20);}
+  .phase-tag.active{background:var(--amber);color:#78350F;border-color:transparent;}
+  .content{max-width:640px;margin:0 auto;padding:28px 16px 60px;display:flex;flex-direction:column;gap:20px;}
+  .section-card{background:var(--white);border-radius:18px;box-shadow:var(--shadow-md);overflow:hidden;opacity:0;transform:translateY(20px);animation:fadeUp 0.5s ease forwards;}
+  .section-card:nth-child(1){animation-delay:0.05s;}.section-card:nth-child(2){animation-delay:0.15s;}
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0);}}
+  .card-header{display:flex;align-items:center;gap:10px;padding:16px 18px 14px;border-bottom:1px solid #F0F0F0;}
+  .card-header-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .card-header-icon.what{background:#DBEAFE;}.card-header-icon.how{background:#D1FAE5;}
+  .card-header-label{font-size:10px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;margin-bottom:2px;}
+  .card-header-label.what{color:#1D4ED8;}.card-header-label.how{color:#065F46;}
+  .card-header-title{font-size:15px;font-weight:700;color:var(--gray-dark);}
+  .card-body{padding:18px;font-size:14px;line-height:1.8;color:#374151;}
+  .card-body p{margin-bottom:12px;}.card-body p:last-child{margin-bottom:0;}
+  .doshi-box{margin-top:16px;background:linear-gradient(135deg,#FFF7ED,#FEF3C7);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:14px 16px;}
+  .doshi-label{font-size:11px;font-weight:700;color:#92400E;letter-spacing:0.05em;margin-bottom:6px;display:block;}
+  .doshi-box p{font-size:13px!important;color:#78350F!important;font-style:italic;line-height:1.75!important;margin:0!important;}
+  .info-box{margin-top:14px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1px solid #BFDBFE;border-radius:12px;padding:14px 16px;}
+  .info-box-label{font-size:11px;font-weight:700;color:#1E40AF;margin-bottom:8px;display:block;}
+  .info-box p{font-size:13px;color:#1E3A8A;line-height:1.75;margin:0;}
+  .tool-desc-box{background:var(--green-ultra);border:1px solid #C8E6C9;border-radius:12px;padding:14px 16px;margin-bottom:16px;}
+  .tool-desc-item{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #E8F5E9;font-size:13px;line-height:1.65;}
+  .tool-desc-item:last-child{border-bottom:none;padding-bottom:0;}
+  .tool-desc-name{font-weight:700;color:var(--green-dark);white-space:nowrap;min-width:85px;font-size:12px;}
+  .ai-box{margin-bottom:16px;background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1px solid #BBF7D0;border-radius:12px;padding:14px 16px;}
+  .ai-box-label{font-size:11px;font-weight:700;color:#14532D;margin-bottom:10px;display:block;}
+  .ai-warning{font-size:11px;color:#166534;background:#DCFCE7;padding:6px 10px;border-radius:6px;margin-top:8px;}
+  .contact-box{margin-top:14px;background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1px solid #BFDBFE;border-radius:12px;padding:14px 16px;}
+  .contact-box-label{font-size:11px;font-weight:700;color:#1E40AF;margin-bottom:8px;display:block;}
+  .contact-link{display:flex;align-items:center;gap:8px;padding:7px 10px;background:white;border:1px solid #BFDBFE;border-radius:8px;text-decoration:none;color:#1E40AF;font-size:12px;font-weight:600;margin-bottom:6px;}
+  .contact-link:last-child{margin-bottom:0;}
+  .tool-section-label{font-size:10px;font-weight:700;letter-spacing:0.12em;color:var(--gray-mid);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+  .tool-section-label::after{content:'';flex:1;height:1px;background:#E5E7EB;}
+  .tool-btn{display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;text-decoration:none;font-size:13px;font-weight:600;margin-bottom:8px;transition:transform 0.15s,box-shadow 0.15s;width:100%;}
+  .tool-btn:last-child{margin-bottom:0;}.tool-btn:hover{transform:translateX(4px);box-shadow:var(--shadow-sm);}
+  .tool-btn.green{background:var(--green-pale);border:1px solid #C8E6C9;color:var(--green-dark);}
+  .tool-btn.video{background:linear-gradient(135deg,#FFF1F0,#FFE4E1);border:1px solid #FECACA;color:#991B1B;}
+  .tool-btn.dl{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:1px solid #C4B5FD;color:#5B21B6;}
+  .tool-btn-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;background:rgba(255,255,255,0.7);}
+  .tool-btn-text{flex:1;}.tool-btn-arrow{font-size:12px;opacity:0.5;flex-shrink:0;}
+  .footer{text-align:center;padding:0 16px 40px;font-size:11px;color:var(--gray-mid);}
+  .footer-brand{font-weight:700;color:var(--green-mid);}
+  @media(max-width:480px){.hero{padding:32px 16px 0;}.content{padding:20px 12px 50px;gap:16px;}.card-body{font-size:13px;padding:14px;}}
+
+  .hero{background:linear-gradient(150deg,#7f1d1d 0%,#b91c1c 60%,#ef4444 100%);}
+</style>
+  <link rel="stylesheet" href="auth.css">
+  <script src="auth.js"></script>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-tree">🎤</div>
+  <div class="brand-badge">🌱 就活の木｜キャリア支援課</div>
+  <span class="hero-icon">🎤</span>
+  <h1>面接対策</h1>
+  <p class="hero-sub">頭でわかると口で言えるは全く別物。<br>練習した回数だけ自信になります。</p>
+  <div class="phase-bar">
+    <span class="phase-tag">🌸 春</span>
+    <span class="phase-tag">☀️ 夏〜 準備開始</span>
+    <span class="phase-tag active">🍂 秋冬 本格化！</span>
+    <span class="phase-tag active">🌸 4年・本選考 ピーク！</span>
+    
+  </div>
+</div>
+<div class="content">
+  <div class="section-card">
+    <div class="card-header">
+      <div class="card-header-icon what">❓</div>
+      <div><div class="card-header-label what">What &amp; Why</div><div class="card-header-title">面接対策 って何をするの？</div></div>
+    </div>
+    <div class="card-body">
+      
+      <p>面接でよく聞かれる質問への「答え方」を準備する作業です。</p>
+      <p>「自己紹介」「志望動機」「ガクチカ」「強み・弱み」「逆質問」——これらは必出です。答えを考えるだけでなく、<strong>声に出して練習することが大切</strong>です。</p>
+      <p>「頭の中ではわかっている」と「口で言える」は全く別物です。緊張した本番で初めて話そうとすると、言葉が出てこなくなります。練習した量だけ自信が生まれます。</p>
+      <div class="doshi-box">
+        <span class="doshi-label">🔥 キャリ爺のド推しポイント</span>
+        <p>「頭でわかると口で言えるは全く別物。練習した回数だけ自信になります。一人で鏡の前でもいい、声に出すことから始めて。」</p>
+      </div>
+    
+    </div>
+  </div>
+  <div class="section-card">
+    <div class="card-header">
+      <div class="card-header-icon how">💡</div>
+      <div><div class="card-header-label how">How — ツールを使おう</div><div class="card-header-title">面接対策 ツール・リンク集</div></div>
+    </div>
+    <div class="card-body">
+      
+      <p>キャリ爺作成の面接対策ワークシートシリーズです。15問形式で本番想定の練習ができます。</p>
+      <div class="tool-section-label" style="margin-top:8px;">▶️ 動画で学ぶ</div>
+      <a class="tool-btn video" href="https://youtu.be/8cGQvh9fg9Q" target="_blank" rel="noopener"><span class="tool-btn-icon">▶️</span><span class="tool-btn-text">質問の意図を知ろう</span><span class="tool-btn-arrow">→</span></a>
+      <a class="tool-btn video" href="https://youtu.be/CYory1dEPNk" target="_blank" rel="noopener"><span class="tool-btn-icon">▶️</span><span class="tool-btn-text">面接は最初の5分で決まる</span><span class="tool-btn-arrow">→</span></a>
+      <a class="tool-btn video" href="https://youtu.be/gzmyAvu0sHw" target="_blank" rel="noopener"><span class="tool-btn-icon">▶️</span><span class="tool-btn-text">15日間の面接練習（使い方説明動画）</span><span class="tool-btn-arrow">→</span></a>
+      <a class="tool-btn video" href="https://youtu.be/TEqvADe_mvU" target="_blank" rel="noopener"><span class="tool-btn-icon">▶️</span><span class="tool-btn-text">面接練習 第一回</span><span class="tool-btn-arrow">→</span></a>
+      <a class="tool-btn video" href="https://youtu.be/9LdGcSxtjfY" target="_blank" rel="noopener"><span class="tool-btn-icon">▶️</span><span class="tool-btn-text">手ごわいシリーズ 全編紹介</span><span class="tool-btn-arrow">→</span></a>
+      <div class="tool-section-label" style="margin-top:16px;">🔦 使えるツール</div>
+      <a class="tool-btn dl" href="https://tanukin0423.github.io/claude-2603/mentai15sheet.pdf" download><span class="tool-btn-icon">⬇️</span><span class="tool-btn-text">面接質問15選 完全攻略ノート（PDF）</span><span class="tool-btn-arrow">↓</span></a>
+      <a class="tool-btn green" href="https://tanukin0423.github.io/mentai15days/" target="_blank" rel="noopener"><span class="tool-btn-icon">📅</span><span class="tool-btn-text">15日間の面接練習サイト</span><span class="tool-btn-arrow">→</span></a>
+    
+    </div>
+  </div>
+</div>
+<div class="footer"><span class="footer-brand">🌱 就活の木</span>｜多摩大学キャリア支援課<br>キャリ爺（北山 四郎）作成</div>
+</body>
+</html>
